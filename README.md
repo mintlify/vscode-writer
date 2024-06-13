@@ -11,7 +11,7 @@ Writing documentation sucks. Let Mintlify take care of it. Just highlight code a
 ### 👩‍💻 How to generate documentation
 
 **Step 1** Highlight code or place cursor on the line you want to document
-**Step 2** Click on the `Write Docs` button (or hit ⌘ + .)
+**Step 2** Click on the `Generate Docs` button (or hit ⌘ + .)
 
 <img src="vscode/assets/demo.gif" width="520px" />
 
