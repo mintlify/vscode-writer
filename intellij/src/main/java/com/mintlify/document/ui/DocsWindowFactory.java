@@ -5,7 +5,6 @@ import com.intellij.openapi.util.Key;
 import com.intellij.openapi.wm.ToolWindow;
 import com.intellij.openapi.wm.ToolWindowFactory;
 import com.intellij.openapi.wm.ToolWindowManager;
-import com.intellij.openapi.wm.ex.ToolWindowManagerEx;
 import com.intellij.ui.content.Content;
 import com.intellij.ui.content.ContentFactory;
 import org.jetbrains.annotations.NotNull;
@@ -17,7 +16,7 @@ public class DocsWindowFactory implements ToolWindowFactory {
 
   public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
     DocsWindow docsWindow = new DocsWindow(toolWindow);
-    ContentFactory contentFactory = ContentFactory.SERVICE.getInstance();
+    ContentFactory contentFactory = ContentFactory.getInstance();
     Content content = contentFactory.createContent(docsWindow.getContent(), null, false);
     content.putUserData(MY_TOOL_WINDOW, docsWindow);
     toolWindow.getContentManager().addContent(content);
@@ -25,7 +24,7 @@ public class DocsWindowFactory implements ToolWindowFactory {
 
   @Nullable
   public static DocsWindow getWindow(Project project) {
-    ToolWindowManager instance = ToolWindowManagerEx.getInstance(project);
+    ToolWindowManager instance = ToolWindowManager.getInstance(project);
     ToolWindow toolWindow = instance.getToolWindow(DocsWindowFactory.ID);
     if (toolWindow != null) {
       if (!toolWindow.isShowStripeButton()) {

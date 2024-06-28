@@ -4,15 +4,23 @@
     <name>Mintlify Doc Writer</name>
     <version>1.2.4</version>
     <vendor url="https://www.mintlify.com/" email="hi@mintlify.com">Mintlify</vendor>
-    
+
 
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
+        <applicationService
+                serviceImplementation="com.mintlify.settings.ApplicationSettingsState"/>
+        <applicationConfigurable
+                parentId="tools"
+                instance="com.mintlify.settings.ApplicationSettingsPanel"
+                id="com.mintlify.settings.ApplicationSettingsPanel"
+                displayName="Mintlify Settings"
+        />
         <applicationService serviceImplementation="com.mintlify.document.services.MyApplicationService"/>
         <projectService serviceImplementation="com.mintlify.document.services.MyProjectService"/>
         <toolWindow id="Mintlify Doc Writer" icon="/icons/icon.svg" anchor="right"
-                factoryClass="com.mintlify.document.ui.DocsWindowFactory"/>
+                    factoryClass="com.mintlify.document.ui.DocsWindowFactory"/>
     </extensions>
 
     <applicationListeners>
@@ -39,7 +47,7 @@
             <br/>
             Writing documentation sucks. Let Mintlify take care of it. Just highlight code and see the magic.
             <h1>How to generate documentation</h1>
-            <b>Step 1</b> Highlight code or place cursor on the line you want to document 
+            <b>Step 1</b> Highlight code or place cursor on the line you want to document
             <b>Step 2</b> Click on the Write Docs button (or hit ⌘⇧.)
             <h1>Languages supported</h1>
             <ul>
